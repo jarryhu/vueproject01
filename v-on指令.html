@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<!--v-on事件绑定机制-->
+<div id="app">
+    {{msg}}
+    <input type="button" value="按钮" v-on:click="show1">
+    <br>
+    <input type="button" value="按钮" v-on:mouseover="show2">
+    <br>
+    简写方式@
+    <input type="button" value="按钮" @click="show1">
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "v-on指令"
+        },
+        methods: {
+            show1: function () {
+                alert("v-on 调用")
+            },
+            show2: function () {
+                console.log("v-on mouseover");
+            }
+
+        }
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue基本代码</title>
+    <!--    导入vue.js-->
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<!--new vue实例会控制这个元素总的所有内容-->
+<!--1,vue控制的区域就是我们说的v-->
+<div id="app">
+    <p>{{msg}}</p>
+</div>
+
+<script>
+    // 2，new 出来的vm就是mvvm中的vm
+    // 创建一个vue实例,浏览器的内存中就创建了一个vue构造函数
+    var vm = new Vue({
+        el: "#app",//表示vue实例要控制页面上id为app的对应区域
+        data: {//data属性中存放的是el中要用数据
+            // 3。data 就是mvvm中的m用于保存每个页面的数据
+            msg: "helloWorld Vue"//通过vue指令渲染到页面上，程序员不用再使用dom方式渲染数据了，vue不建议使用dom
+        }
+    })
+</script>
+</body>
+</html>

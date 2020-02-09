@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="转起来" @click="start">
+    <input type="button" value="停止" @click="stop">
+    <br>
+    {{msg}}
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "跑马灯开始了！！",
+            interval: null
+        },
+        methods: {
+            start: function () {
+                if (this.interval != null) return;// 标志位不为null时表示定时器没有停所以不用再次开始
+                this.interval = setInterval(() => {//箭头函数表示this指向了外部的this
+                    //如果要使用data里面的数据要用this关键字
+                    var start = this.msg.substring(0, 1);
+                    var end = this.msg.substring(1);
+                    this.msg = end + start;
+                    //vue是把msg里面的数据进行监听，如果data里面的数据发生变化，vue就会自动把数据同步到页面上,区别以前的dom操作
+                }, 500)
+            },
+            stop: function () {
+
+                clearInterval(this.interval);
+                // 清除定时器要要把interval置为null;
+                this.interval = null;
+            }
+        }
+
+    })
+    //分析 点击开始后把文字的第一个字符放在最后应该使用sbustirng，后面的一次前置
+</script>
+</body>
+</html>

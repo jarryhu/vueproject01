@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-cloak</title>
+<style>
+[v-cloak]{
+    display: none;
+}
+
+</style>
+</head>
+<body>
+
+<!--<div id="app">-->
+<!--    {{msg}}-->
+<!--</div>-->
+<!--&lt;!&ndash;放在此处加载会发现加载成功之前会显示插值表达式，解决此问题就要使用v-cloak&ndash;&gt;-->
+<!--<script type="text/javascript" src="lib/vue-2.4.0.js"></script>-->
+<!--<script>-->
+<!--    var vm = new Vue({-->
+<!--        el: "#app",-->
+<!--        data: {-->
+<!--            msg: "v-cloak"-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+
+<div id="app">
+<!--    v-cloak解决插值表达式页面的闪烁问题-->
+    <p v-cloak>{{msg}}</p>
+</div>
+
+<script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "v-cloak"
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if v-show.html</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+<input type="button" value="切换" @click="flag=!flag">
+<!--    v-if是删除和创建-->
+    <p v-if="flag">v-if切换</p>
+<!--    v-show是显示和隐藏-->
+    <p v-show="flag">v-show切换</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: true,
+
+        },
+        methods: {}
+
+
+    })
+</script>
+</body>
+</html>

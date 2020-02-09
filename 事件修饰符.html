@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+    <style>
+        .div {
+            width: 200px;
+            height: 200px;
+            background: aqua;
+        }
+
+        .div1 {
+            padding: 50px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--  ######################  实验证明事件会被冒泡调用-->
+    <!--    <div class="div" @click="divHandler">-->
+    <!--        &lt;!&ndash;        所以要加入.stop修饰符阻止冒泡&ndash;&gt;-->
+    <!--        <input type="button" value="点我" @click.stop="btnHandler">-->
+    <!--    </div>-->
+    <!-- ################# .prevent   阻止默认事件-->
+<!--    <a href="http://www.baidu.com" @click.prevent="linkhref">百度</a>-->
+
+    <!--######################## 捕获机制来触发事件 从外到内-->
+    <!--    <div class="div" @click.capture="divHandler">-->
+
+    <!--        <input type="button" value="点我" @click="btnHandler">-->
+    <!--    </div>-->
+
+    <!--########################.self只有点击当前元素才会触发（不能使用的在元素上）-->
+<!--    <div class="div" @click.self="divHandler">-->
+
+<!--        <input type="button" value="点我" @click="btnHandler">-->
+<!--    </div>-->
+
+    <!-- ###################### .once 只触发一次-->
+<!--    <a href="http://www.baidu.com" @click.prevent.once="linkhref">百度</a>-->
+
+<!--##########################    .self只会阻止自己身上的冒泡行为，不会真正的阻止冒泡-->
+    <div class="div1" @click="outdivHandler">
+        <div class="div" @click.self="divHandler">
+            <input type="button" value="点我" @click="btnHandler">
+        </div>
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "",
+        },
+        methods: {
+            divHandler: function () {
+                console.log("这是divHandler 点击事件")
+            },
+
+            outdivHandler: function () {
+                console.log("outdivHandler 点击事件")
+            },
+            btnHandler: function () {
+                console.log("这是btnHandler 点击事件")
+            },
+            linkhref: function () {
+                console.log("触发链接");
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

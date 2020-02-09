@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for循环普通数组</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+<!-- 遍历list出的item 和i 分别表示 元素和下标-->
+
+    <p v-for="(item,i) in list">{{i}}------------{{item}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            list: ["1", 2, true, "abcdef"],
+
+        },
+        methods: {}
+
+
+    })
+</script>
+</body>
+</html>

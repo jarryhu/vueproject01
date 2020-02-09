@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for遍历对象属性</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <p v-for="(v,k) in user">{{k}}--{{v}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            user: {username: "Jack", age: 10, gander: '男'},
+
+        },
+        methods: {}
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+
+<div id="app">
+    {{msg2}}
+    <p v-text="msg"></p>
+    <p v-html="msg"></p>
+    <p v-html="msg2"></p>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "<h1>v-html测试</h1>",
+            msg2: "<a href='http://www.baidu.com'> baidu</a>"
+        }
+    })
+</script>
+</body>
+</html>

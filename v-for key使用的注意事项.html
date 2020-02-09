@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for key使用的注意事项</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="id"><input type="text" v-model="username"> <input value="添加" type="button" @click="add">
+<!--    用v-bind方式来标识已经渲染过的数据 尽量用v-for时写上：key 必须是string或者数字 不能是对象-->
+    <p v-for="item,i in listUser" :key="item.id">
+        <input type="checkbox">
+        {{item.username}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            id: "",
+            username: "",
+            listUser: [{
+                id: 1,
+                username: "Tom",
+                age: 20,
+                gander: "男"
+            }, {
+                id: 2,
+                username: "Alice",
+                age: 21,
+                gander: "女"
+            }, {
+                id: 3,
+                username: "Jane",
+                age: 22,
+                gander: "女"
+            }]
+
+        },
+        methods: {
+            add() {
+                this.listUser.unshift({id: this.id, username: this.username})
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

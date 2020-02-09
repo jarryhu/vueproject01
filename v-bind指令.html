@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div class="app">
+    <!--v-bind指令绑定到某个属性上后面跟的是属性的名-->
+    <input type="button" v-bind:value="msg1+'按钮'" v-bind:title="msg1+1232">
+    <br>
+    <!--    简化写法简写为:-->
+    <!--    绑定指令可以写合法的js表达式-->
+    <input type="button" :value="msg+'简化写法'" :title="msg+1232">
+</div>
+
+<script>
+    var vm = new Vue({
+
+        el: ".app",
+        data: {
+            msg1: "v-bind指令",
+            msg: 1
+        }
+    })
+</script>
+</body>
+</html>

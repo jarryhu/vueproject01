@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text</title>
+    <script type="text/javascript" src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--    插值表达式会追加值-->
+    _______________ {{msg}}_______________
+    <!--    v-text会替换标签的内容-->
+    <p v-text="msg">__________________</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "v-text指令"
+        }
+    })
+</script>
+</body>
+</html>
